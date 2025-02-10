@@ -45,7 +45,7 @@ button:disabled {
 /* Responsive Adjustments */
 @media (max-width: 600px) {
   .app-container {
-    width: 90%;
-    padding: 1.5rem;
+    width: 90vw;
+    padding: 1.25rem;
   }
 }

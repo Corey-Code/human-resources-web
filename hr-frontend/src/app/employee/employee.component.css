@@ -144,6 +144,12 @@ tr:hover {
 
 /* RESPONSIVENESS */
 @media (max-width: 600px) {
+  /* General Styles */
+  .container {
+    width: 90vw;
+    padding: 1rem;
+  }
+
   /* Responsive table */
   .employee-list {
     overflow-x: auto;
@@ -170,7 +176,6 @@ tr:hover {
   table tr,
   table td {
     display: block;
-    width: 100%;
   }
 
   table tr {
@@ -182,7 +187,7 @@ tr:hover {
   }
 
   table td {
-    text-align: center;
+    text-align: end;
     padding: 0.5rem;
     position: relative;
   }
