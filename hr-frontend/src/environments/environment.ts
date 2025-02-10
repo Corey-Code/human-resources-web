@@ -1,6 +1,6 @@
-// src/environments/environment.ts
+// src/environments/environment.prod.ts
 export const environment = {
-  production: false,
-  // Your API endpoint (or any other configuration)
-  apiUrl: 'http://localhost:3000'
+  production: true,
+  // Production API endpoint
+  apiUrl: 'https://hr-backend.corey-code.com',
 };

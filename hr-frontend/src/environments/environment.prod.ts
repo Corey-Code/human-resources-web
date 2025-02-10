@@ -2,5 +2,5 @@
 export const environment = {
   production: true,
   // Production API endpoint
-  apiUrl: ''
+  apiUrl: '',
 };
