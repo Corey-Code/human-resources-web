@@ -38,7 +38,7 @@ Ensure you have the following installed:
 Navigate to the **back-end folder** and install dependencies:
 
 ```bash
-cd ./hr_backend
+cd ./hr-backend
 npm install
 ```
 
@@ -58,7 +58,7 @@ The server should now be running on:
 Navigate to the **Angular front-end** folder and install dependencies:
 
 ```bash
-cd ./hr-app
+cd ./hr-frontend
 npm install
 ```
 
@@ -132,11 +132,11 @@ export const environment = {
 
 ### 🔹 **Employee List & Adding**
 
-![Employee List](https://github.com/corey-code/human-resources-web/captures/capture1.png)
+![Employee List](https://raw.githubusercontent.com/Corey-Code/human-resources-web/refs/heads/main/captures/capture1.png)
 
 ### 🔹 **Edit Employee**
 
-![Edit Employee](https://github.com/corey-code/human-resources-web/captures/capture2.png)
+![Edit Employee](https://raw.githubusercontent.com/Corey-Code/human-resources-web/refs/heads/main/captures/capture2.png)
 
 ---
 
@@ -147,7 +147,7 @@ export const environment = {
 Run backend tests:
 
 ```bash
-cd ./hr_backend
+cd ./hr-backend
 npm test
 ```
 
@@ -156,7 +156,7 @@ npm test
 Run frontend unit tests:
 
 ```bash
-cd ./hr-app
+cd ./hr-frontend
 ng test
 ```
 
