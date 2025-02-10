@@ -1,0 +1,273 @@
+/* General Styles */
+.container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #1e1e1e; /* Dark background */
+  color: #e0e0e0; /* Light text for contrast */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  font-family: "Arial", sans-serif;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Form Styling */
+.form-group {
+  display: flex;
+  align-items: center; /* Align label and input field */
+  justify-content: space-between; /* Ensures spacing */
+  gap: 1rem; /* Adds space between label and input */
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: bold;
+  flex: 1; /* Allows label to shrink or grow */
+  white-space: nowrap; /* Prevents label from wrapping */
+}
+
+.input-field {
+  flex: 2; /* Makes input take more space */
+  width: 100%; /* Ensure full width inside flex */
+  max-width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #444;
+  background: #2a2a2a;
+  color: #f8f8f8;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Submit Button */
+button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: #9d01e5; /* Highlight */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #8c02ccd5; /* Highlight Hover */
+}
+
+button:disabled {
+  background: #333;
+  cursor: not-allowed;
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Employee List Wrapper */
+.employee-list {
+  margin-top: 2rem;
+  overflow-x: auto; /* Allows horizontal scroll on small screens */
+  padding: 1rem;
+  border-radius: 8px;
+  background: #1e1e1e; /* Dark background */
+  color: #f8f8f8; /* Light text */
+}
+
+/* Employee List Header */
+.employee-list-header {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+/* Subtext */
+.sub-text {
+  font-size: 0.9rem;
+  color: #d1d1d1;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #252525;
+  color: #f8f8f8;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Table Header */
+th {
+  background: #7f00a2; /* Dark purple header */
+  color: white;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+/* Table Rows */
+td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #444;
+}
+
+/* Hover Effect */
+tr:hover {
+  background: #333;
+  cursor: pointer;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 600px) {
+  /* Responsive table */
+  .employee-list {
+    overflow-x: auto;
+  }
+
+  /* Reduce font size for headers */
+  .employee-list-header {
+    font-size: 1.5rem;
+  }
+
+  /* Make table scrollable */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
+
+  /* Stack table into block elements for mobile */
+  table thead {
+    display: none; /* Hide table headers on small screens */
+  }
+
+  table tbody,
+  table tr,
+  table td {
+    display: block;
+    width: 100%;
+  }
+
+  table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #444;
+    padding: 0.5rem;
+    background: #2a2a2a;
+    border-radius: 5px;
+  }
+
+  table td {
+    text-align: right;
+    padding: 0.5rem;
+    position: relative;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+/* Modal Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background: #1e1e1e;
+  color: #ffffff;
+  padding: 2rem;
+  width: 400px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  position: relative;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Adds space between buttons */
+}
+
+.modal-buttons button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-buttons button:first-child {
+  background: #9d01e5; /* Highlight */
+  color: white;
+}
+
+.modal-buttons button:first-child:hover {
+  background: #8c02ccd5; /* Highlight Hover*/
+}
+
+.modal-buttons button:last-child {
+  background: #555;
+  color: white;
+}
+
+.modal-buttons button:last-child:hover {
+  background: #777;
+}
+
+/* Inputs Inside Modal */
+.modal-content input {
+  flex: 2; /* Makes input take more space */
+  width: 100%; /* Ensure full width inside flex */
+  max-width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #444;
+  background: #2a2a2a;
+  color: #f8f8f8;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}

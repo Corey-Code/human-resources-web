@@ -1,0 +1,158 @@
+<div class="container">
+  <h1>HR Application</h1>
+
+  <!-- Open Add Employee Modal -->
+  <button (click)="openAddModal()">Add Employee</button>
+
+  <div *ngIf="employees.length" class="employee-list">
+    <h2 class="employee-list-header">
+      Employee List
+      <span class="sub-text">(Select an employee to edit)</span>
+    </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Salary</th>
+          <th>Deductions</th>
+          <th>Net Pay</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees" (click)="openEditModal(emp)">
+          <td data-label="Name">{{ emp.name }}</td>
+          <td data-label="Salary">${{ emp.salary | number : "1.2-2" }}</td>
+          <td data-label="Deductions">
+            ${{ emp.deductions | number : "1.2-2" }}
+          </td>
+          <td data-label="Net Pay">${{ emp.netPay | number : "1.2-2" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add Employee Modal -->
+  <div *ngIf="showAddModal" class="modal">
+    <div class="modal-content">
+      <h2>Add Employee</h2>
+      <form #employeeForm="ngForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            required
+            [(ngModel)]="newEmployee.name"
+            name="name"
+            #name="ngModel"
+            class="input-field"
+            [class.invalid]="name.invalid && name.touched"
+          />
+          <small *ngIf="name.invalid && name.touched" class="error-message">
+            Name is required.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="salary">Salary</label>
+          <input
+            id="salary"
+            type="number"
+            required
+            [(ngModel)]="newEmployee.salary"
+            name="salary"
+            #salary="ngModel"
+            class="input-field"
+            [class.invalid]="salary.invalid && salary.touched"
+          />
+          <small *ngIf="salary.invalid && salary.touched" class="error-message">
+            Salary is required and must be a number.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="deductions">Deductions</label>
+          <input
+            id="deductions"
+            type="number"
+            required
+            [(ngModel)]="newEmployee.deductions"
+            name="deductions"
+            #deductions="ngModel"
+            class="input-field"
+            [class.invalid]="deductions.invalid && deductions.touched"
+          />
+          <small
+            *ngIf="deductions.invalid && deductions.touched"
+            class="error-message"
+          >
+            Deductions are required and must be a number.
+          </small>
+        </div>
+
+        <!-- Error Display -->
+        <div *ngIf="errorMessage" class="error-box">
+          {{ errorMessage }}
+        </div>
+
+        <div class="modal-buttons">
+          <button type="button" (click)="saveEmployee()" [disabled]="loading">
+            Save
+          </button>
+          <button type="button" (click)="closeAddModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Employee Modal -->
+  <div *ngIf="showEditModal && selectedEmployee" class="modal">
+    <div class="modal-content">
+      <h2>Edit Employee</h2>
+
+      <!-- Name -->
+      <div class="form-group">
+        <label for="edit-name">Name</label>
+        <input
+          id="edit-name"
+          type="text"
+          [(ngModel)]="selectedEmployee.name"
+          class="input-field"
+        />
+      </div>
+
+      <!-- Salary -->
+      <div class="form-group">
+        <label for="edit-salary">Salary</label>
+        <input
+          id="edit-salary"
+          type="number"
+          [(ngModel)]="selectedEmployee.salary"
+          class="input-field"
+        />
+      </div>
+
+      <!-- Deductions -->
+      <div class="form-group">
+        <label for="edit-deductions">Deductions</label>
+        <input
+          id="edit-deductions"
+          type="number"
+          [(ngModel)]="selectedEmployee.deductions"
+          class="input-field"
+        />
+      </div>
+
+      <!-- Error Display -->
+      <div *ngIf="errorMessage" class="error-box">
+        {{ errorMessage }}
+      </div>
+
+      <div class="modal-buttons">
+        <button (click)="saveChanges()" [disabled]="loading">Save</button>
+        <button (click)="closeEditModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
