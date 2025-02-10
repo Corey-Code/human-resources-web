@@ -109,6 +109,7 @@ button:disabled {
 .sub-text {
   font-size: 0.9rem;
   color: #d1d1d1;
+  display: block;
 }
 
 /* Table Styling */
@@ -181,7 +182,7 @@ tr:hover {
   }
 
   table td {
-    text-align: right;
+    text-align: center;
     padding: 0.5rem;
     position: relative;
   }
